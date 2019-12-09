@@ -143,7 +143,7 @@ exports.GetInfo = (req, res) => {
                         }
                     });
                 } else {
-                    ress.json({
+                    res.json({
                         code: 50008,
                         message: "Login failed, unable to get user details."
                     });
