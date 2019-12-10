@@ -17,9 +17,10 @@ exports.Homebanner = (req, res) => {
         // 解析图片路径
         // 通过base获得文件名
         let image = urls + "/img/homebannar/" + path.parse(files.file.path).base;
-
+        let sorts = 0;
         HomeBanner({
-            image
+            image,
+            sorts
         }, (data) => {
             res.json(data);
         })
