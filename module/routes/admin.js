@@ -37,7 +37,7 @@ exports.Register = (req, res) => {
     if (pass.length < 6) {
         return res.json({
             code: 20000,
-            data: "warning",
+            data: "error",
             message: "密码长度不能小于6位"
         })
     }
@@ -45,7 +45,7 @@ exports.Register = (req, res) => {
     if (pass !== password) {
         return res.json({
             code: 20000,
-            data: "warning",
+            data: "error",
             message: "两次输入密码不一致"
         })
     }
@@ -54,7 +54,7 @@ exports.Register = (req, res) => {
     if (!reg.test(email)) {
         return res.json({
             code: 20000,
-            data: "warning",
+            data: "error",
             message: "请输入正确邮箱地址"
         })
     }
@@ -145,7 +145,7 @@ exports.GetInfo = (req, res) => {
                 } else {
                     res.json({
                         code: 50008,
-                        message: "Login failed, unable to get user details."
+                        message: "登录失败，无法获取用户详细信息"
                     });
                 }
             });

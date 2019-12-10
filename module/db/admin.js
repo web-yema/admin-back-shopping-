@@ -12,22 +12,19 @@ let adminSchema = new mongoose.Schema({
   email: String,
   password: String,
   avatar: String,
-  power: String
-
 }, {
   collection: 'adminBack'
 })
 
 let Admin = mongoose.model('adminBack', adminSchema)
-
+// 登录
 exports.Logins = (data, callback) => {
   Admin.find(data).then(item => {
     callback(item)
   })
 }
-
+// 注册
 exports.Registers = (data, callback) => {
-
   Admin.find({
     adminName: data.adminName
   }).then(item => {
@@ -49,7 +46,7 @@ exports.Registers = (data, callback) => {
         })
       }
       Admin.create(data).then(times => {
-        return callback({
+        callback({
           code: 20000,
           data: "success",
           message: "注册成功"

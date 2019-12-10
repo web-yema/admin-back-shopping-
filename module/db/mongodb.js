@@ -74,7 +74,6 @@ exports.Registers = (data, callback) => {
 exports.HomeBanner = (data, callback) => {
     console.log(data);
     AdminConnect('mobileBack', (dbo, db) => {
-
         dbo.collection("loop").insertOne(data, function (err, res) {
             if (err) throw err;
             callback({
@@ -86,7 +85,4 @@ exports.HomeBanner = (data, callback) => {
         });
 
     })
-
-
-
 }
